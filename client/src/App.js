@@ -14,10 +14,18 @@ function App() {
       setFilteredNovels(data)
     }
     pullData()
-  }, )
+  }, [])
+  useEffect(() => {
+    console.log(novelsData, searchTerm)
+    const novels = filtered(novelsData, searchTerm)
+    setFilteredNovels(novels)
+  }, [searchTerm, novelsData])
   return (
     <div className="App">
-      <Novels/>
+      <Novels
+        novelsDataAsProps={filteredNovels}
+        setSearchTerm={setSearchTerm}
+      />
     </div>
   );
 }
