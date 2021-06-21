@@ -7,7 +7,7 @@ const Novels = props => {
       {props.novelsDataAsProps.map(novel => {
         return (
           <>
-            <div>{novel.title}</div>
+            <div>{`${novel.title} by ${novel.author.nameFirst} ${novel.author.nameLast}`}</div>
           </>
         )
       })}
