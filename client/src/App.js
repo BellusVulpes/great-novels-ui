@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Novels from './components/great-novels';
 import {fetchData, filtered} from './utils/great-novels';
-import axios from 'axios';
 
 function App() {
   const [novelsData, setNovelsData] = useState([])
@@ -10,7 +9,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   useEffect(() => {
     async function pullData() {
-      const { data } = await axios.get('http://localhost:8080/api')
+      const data = await fetchData()
       setNovelsData(data)
       setFilteredNovels(data)
     }
